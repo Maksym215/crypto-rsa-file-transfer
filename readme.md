@@ -69,27 +69,4 @@ so the client read a block of the file (64k) , encrypt it with AES128 using meta
 and the client send the file block by block.
 the server receives the block, decode it and append it to the file.
 
-####5. server check the file and send acknowledge
-finally (after sending filesize bytes) the client send the filecrc as int64
-if the crc is equal to the server side calculated crc,
-- the server renames the file to same filename as the metadata with extension .data
-- the server send ‘ACK’ to the client. and the client rename the .meta file to .done
-if the client dont get a ‘ACK’ from the server he renames .meta to .failed
-lib’s use python 3 libs !
-https://pymotw.com/3/asyncio/index.html#module-asyncio
-ras ???
-aes ???
-folder and files
-files on zhenqiang (client computer)
-/m2y/zhenqiang/photo/myfoto.jpg binary data
-/m2y/zhenqiang/photo/myfoto.meta meta data
-/m2y/zhenqiang/pubKey/roland-frei.data pubKey
-/m2y/zhenqiang/privateKey/zhenqiang.data
-files on roland-frei (server computer)
-/m2y/roland-frei/photo/zhenqiang_30-12-2018_23-59-59.meta
-/m2y/roland-frei/photo/zhenqiang_30-12-2018_23-59-59.data
-/m2y/roland-frei/pubKey/zhenqiang.data
-/m2y/roland-frei/privateKey/roland-frei.data
-running the scripts
-python.exe m2y-client.py /m2y/zhenqiang/photo/myfoto.meta
-python.exe m2y-server.py
+
